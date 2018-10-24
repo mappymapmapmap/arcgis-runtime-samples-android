@@ -25,7 +25,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import com.esri.arcgisruntime.displaykmlnetworklinks.R;
 import com.esri.arcgisruntime.layers.KmlLayer;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
