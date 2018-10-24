@@ -2,7 +2,9 @@
 
 <p>Display KML with a network link and show network messages.</p>
 
-<p><img src="DisplayKMLNetworkLinks.png"/></p>
+<p><img src="Displaykmlnetworklinks.png"/></p>
+
+<p><img src="Displaykmlnetworklinks2.png"/></p>
 
 <h2>How to use the sample</h2>
 
