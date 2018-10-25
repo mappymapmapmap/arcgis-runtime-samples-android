@@ -1,10 +1,9 @@
 <h1>Display KML Network Links</h1>
 
-<p>Display KML with a network link and show network messages.</p>
+<p>KML files can reference other KML files on the network as well as refresh intervals. This can be used to create a map that will periodically refresh itself with the latest data. This sample demonstrates how to display a file with a network link.
+</p>
 
 <p><img src="Displaykmlnetworklinks.png"/></p>
-
-<p><img src="Displaykmlnetworklinks2.png"/></p>
 
 <h2>How to use the sample</h2>
 
