@@ -41,9 +41,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-  private static final String TAG = MainActivity.class.getSimpleName();
-  private static final SpatialReference WGS84 = SpatialReferences.getWgs84();
-
   private MapView mMapView;
 
   @Override
@@ -84,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     pointFields.add(Field.createString("Place", "Place Name", 50));
 
     // a feature collection table that creates point geometry
-    FeatureCollectionTable pointsTable = new FeatureCollectionTable(pointFields, GeometryType.POINT, WGS84);
+    FeatureCollectionTable pointsTable = new FeatureCollectionTable(pointFields, GeometryType.POINT, SpatialReferences.getWgs84());
 
     // set a default symbol for features in the collection table
     SimpleMarkerSymbol markerSymbol = new SimpleMarkerSymbol(Style.TRIANGLE, 0xFFFF0000, 18);
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     // create feature using the collection table by passing an attribute and geometry
     Map<String, Object> attributes = new HashMap<>();
     attributes.put(pointFields.get(0).getName(), "Current Location");
-    Point point = new Point(-79.497238, 8.849289, WGS84);
+    Point point = new Point(-79.497238, 8.849289, SpatialReferences.getWgs84());
     Feature addedFeature = pointsTable.createFeature(attributes, point);
 
     // add feature to collection table
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     polylineFields.add(Field.createString("Boundary", "Boundary Name", 50));
 
     // a feature collection table that creates polyline geometry
-    FeatureCollectionTable polylineTable = new FeatureCollectionTable(polylineFields, GeometryType.POLYLINE, WGS84);
+    FeatureCollectionTable polylineTable = new FeatureCollectionTable(polylineFields, GeometryType.POLYLINE, SpatialReferences.getWgs84());
 
     // set a default symbol for features in the collection table
     SimpleLineSymbol lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.Style.DASH, 0xFF00FF00, 3);
@@ -129,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
     // create feature using the collection table by passing an attribute and geometry
     Map<String, Object> attributes = new HashMap<>();
     attributes.put(polylineFields.get(0).getName(), "AManAPlanACanalPanama");
-    PolylineBuilder builder = new PolylineBuilder(WGS84);
-    builder.addPoint(new Point(-79.497238, 8.849289, WGS84));
-    builder.addPoint(new Point(-80.035568, 9.432302, WGS84));
+    PolylineBuilder builder = new PolylineBuilder(SpatialReferences.getWgs84());
+    builder.addPoint(new Point(-79.497238, 8.849289));
+    builder.addPoint(new Point(-80.035568, 9.432302));
     Feature addedFeature = polylineTable.createFeature(attributes, builder.toGeometry());
 
     // add feature to collection table
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
     polygonFields.add(Field.createString("Area", "Area Name", 50));
 
     // a feature collection table that creates polygon geometry
-    FeatureCollectionTable polygonTable = new FeatureCollectionTable(polygonFields, GeometryType.POLYGON, WGS84);
+    FeatureCollectionTable polygonTable = new FeatureCollectionTable(polygonFields, GeometryType.POLYGON, SpatialReferences.getWgs84());
 
     // set a default symbol for features in the collection table
     SimpleLineSymbol lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, 0xFF0000FF, 2);
@@ -164,10 +161,10 @@ public class MainActivity extends AppCompatActivity {
     // create feature using the collection table by passing an attribute and geometry
     Map<String, Object> attributes = new HashMap<>();
     attributes.put(polygonFields.get(0).getName(), "Restricted area");
-    PolygonBuilder builder = new PolygonBuilder(WGS84);
-    builder.addPoint(new Point(-79.497238, 8.849289, WGS84));
-    builder.addPoint(new Point(-79.337936, 8.638903, WGS84));
-    builder.addPoint(new Point(-79.11409, 8.895422, WGS84));
+    PolygonBuilder builder = new PolygonBuilder(SpatialReferences.getWgs84());
+    builder.addPoint(new Point(-79.497238, 8.849289));
+    builder.addPoint(new Point(-79.337936, 8.638903));
+    builder.addPoint(new Point(-79.11409, 8.895422));
     Feature addedFeature = polygonTable.createFeature(attributes, builder.toGeometry());
 
     // add feature to collection table
