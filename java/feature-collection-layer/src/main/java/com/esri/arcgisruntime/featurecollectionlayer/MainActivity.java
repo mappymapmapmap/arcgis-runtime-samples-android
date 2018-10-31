@@ -16,19 +16,8 @@
 
 package com.esri.arcgisruntime.featurecollectionlayer;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.esri.arcgisruntime.data.Feature;
 import com.esri.arcgisruntime.data.FeatureCollection;
@@ -36,17 +25,13 @@ import com.esri.arcgisruntime.data.FeatureCollectionTable;
 import com.esri.arcgisruntime.data.Field;
 import com.esri.arcgisruntime.geometry.*;
 import com.esri.arcgisruntime.layers.FeatureCollectionLayer;
-import com.esri.arcgisruntime.layers.KmlLayer;
-import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
 import com.esri.arcgisruntime.mapping.view.MapView;
-import com.esri.arcgisruntime.ogc.kml.KmlDataset;
-import com.esri.arcgisruntime.portal.Portal;
-import com.esri.arcgisruntime.portal.PortalItem;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
+import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol.Style;
 import com.esri.arcgisruntime.symbology.SimpleRenderer;
 
 import java.util.ArrayList;
@@ -67,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     // inflate MapView from layout
-    mMapView = (MapView) findViewById(R.id.mapView);
+    mMapView = findViewById(R.id.mapView);
 
     //initialize map with basemap
     ArcGISMap map = new ArcGISMap();
@@ -102,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     FeatureCollectionTable pointsTable = new FeatureCollectionTable(pointFields, GeometryType.POINT, WGS84);
 
     // set a default symbol for features in the collection table
-    SimpleMarkerSymbol markerSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE, 0xFFFF0000, 15);
+    SimpleMarkerSymbol markerSymbol = new SimpleMarkerSymbol(Style.TRIANGLE, 0xFFFF0000, 18);
     SimpleRenderer renderer = new SimpleRenderer(markerSymbol);
     pointsTable.setRenderer(renderer);
 
