@@ -50,45 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     // set the map to the map view
     mMapView.setMap(map);
-    requestReadPermission();
-  }
+//    requestReadPermission();
 
-  /**
-   * Request read external storage for API level 23+.
-   */
-  private void requestReadPermission() {
-    // define permission to request
-    String[] reqPermission = { Manifest.permission.READ_EXTERNAL_STORAGE };
-    int requestCode = 2;
-    if (ContextCompat.checkSelfPermission(this, reqPermission[0]) == PackageManager.PERMISSION_GRANTED) {
-      // set initial KML to URL
-      changeSourceToURL();
-
-    } else {
-      // request permission
-      ActivityCompat.requestPermissions(this, reqPermission, requestCode);
-    }
-  }
-
-  /**
-   * Handle the permissions request response.
-   */
-  @Override
-  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-      // set initial KML to URL
-      changeSourceToURL();
-    } else {
-      // report to user that permission was denied
-      Toast.makeText(this, getString(R.string.kml_read_permission_denied), Toast.LENGTH_SHORT).show();
-    }
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-  }
-
-  /**
-   * Display a kml layer from a URL.
-   */
-  private void changeSourceToURL() {
     // create a kml data set from a URL
     KmlDataset kmlDataset = new KmlDataset(getString(R.string.kml_url));
     // show an alert when any network link messages are received
@@ -100,7 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
     // a KML layer created from a remote KML file
     KmlLayer kmlLayer = new KmlLayer(kmlDataset);
-    display(kmlLayer);
+
+    // clear the existing layers from the map
+    mMapView.getMap().getOperationalLayers().clear();
+
+    // add the KML layer to the map as an operational layer.
+    mMapView.getMap().getOperationalLayers().add(kmlLayer);
 
     // report errors if failed to load
     kmlDataset.addDoneLoadingListener(() -> {
@@ -110,19 +78,6 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, error);
       }
     });
-  }
-
-  /**
-   * Clear all operational layers and add the kml layer to the map as an operational layer.
-   *
-   * @param kmlLayer to add to the map
-   */
-  private void display(KmlLayer kmlLayer) {
-    // clear the existing layers from the map
-    mMapView.getMap().getOperationalLayers().clear();
-
-    // add the KML layer to the map
-    mMapView.getMap().getOperationalLayers().add(kmlLayer);
   }
 
   @Override
