@@ -1,36 +1,35 @@
-<h1>Display KML Network Links</h1>
+# Display KML Network Links
+KML files can reference other KML files on the network as well as refresh intervals. This can be used to create a map that will periodically refresh itself with the latest data. This sample demonstrates how to display a file with a network link.
 
-<p>KML files can reference other KML files on the network as well as refresh intervals. This can be used to create a map that will periodically refresh itself with the latest data. This sample demonstrates how to display a file with a network link.
-</p>
+![Display KML Network Links App](display-kml-network-links.png)
 
-<p><img src="Displaykmlnetworklinks.png"/></p>
 
-<h2>How to use the sample</h2>
+## How to use the sample
 
-<p>The data shown should refresh automatically every few seconds. A network message will be displayed when the dataset is loaded.</p>
+The data shown should refresh automatically every few seconds. A network message will be displayed when the dataset is loaded.
 
-<h2>How it works</h2>
 
-<p>To show KML with network links and display network messages:</p>
+## How it works
 
-<ol>
-    <li>Create a <code>KmlDataset</code> from a KML source which has network links.</li>
-    <li>Construct a <code>KmlLayer</code> with the dataset and add the layer as an operational layer.</li>
-    <li>To listen for network messages, add a <code>KmlNetworkLinkMessageReceivedListener</code> on the dataset.</li>
-</ol>
+To show KML with network links and display network messages:
 
-<h2>Relevant API</h2>
+1. Create a <code>KmlDataset</code> from a KML source which has network links.
+1. Construct a <code>KmlLayer</code> with the dataset and add the layer as an operational layer.
+1. To listen for network messages, add a <code>KmlNetworkLinkMessageReceivedListener</code> on the dataset.
 
-<ul>
-<li>KmlDataset</li>
-<li>KmlLayer</li>
-<li>KmlNetworkLinkMessageReceivedEvent</li>
-</ul>
 
-<h2>About the data</h2>
+## Relevant API
 
-<p>This map shows the current air traffic in parts of Europe with heading, altitude, and ground speed. Additionally, noise levels from ground monitoring stations are shown.</p>
+* KmlDataset
+* KmlLayer
+* KmlNetworkLinkMessageReceivedEvent
 
-<h2>Tags</h2>
 
-<p>KML, KMZ, OGC, Keyhole, Network Link, Network Link Control</p>
+## About the data
+
+This map shows the current air traffic in parts of Europe with heading, altitude, and ground speed. Additionally, noise levels from ground monitoring stations are shown.
+
+
+## Tags
+
+KML, KMZ, OGC, Keyhole, Network Link, Network Link Control.
