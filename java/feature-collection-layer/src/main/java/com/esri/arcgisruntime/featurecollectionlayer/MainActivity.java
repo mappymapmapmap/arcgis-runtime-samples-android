@@ -26,7 +26,7 @@ import com.esri.arcgisruntime.data.Field;
 import com.esri.arcgisruntime.geometry.*;
 import com.esri.arcgisruntime.layers.FeatureCollectionLayer;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
-import com.esri.arcgisruntime.mapping.Basemap;
+import com.esri.arcgisruntime.mapping.Basemap.Type;
 import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
     mMapView = findViewById(R.id.mapView);
 
     //initialize map with basemap
-    ArcGISMap map = new ArcGISMap();
-    map.setBasemap(Basemap.createOceans());
+    ArcGISMap map = new ArcGISMap(Type.OCEANS, 8.584491, -79.659713, 8);
 
     //assign map to the map view
     mMapView.setMap(map);
