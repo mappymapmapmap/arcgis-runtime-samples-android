@@ -16,11 +16,6 @@
 
 package com.esri.arcgisruntime.sample.displaykmlnetworklinks;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +23,7 @@ import android.widget.Toast;
 import com.esri.arcgisruntime.layers.KmlLayer;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
-import com.esri.arcgisruntime.mapping.Basemap;
+import com.esri.arcgisruntime.mapping.Basemap.Type;
 import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.ogc.kml.KmlDataset;
 
@@ -46,11 +41,9 @@ public class MainActivity extends AppCompatActivity {
     // get the reference to the map view
     mMapView = findViewById(R.id.mapView);
     // create a map with the dark gray canvas basemap
-    ArcGISMap map = new ArcGISMap(Basemap.createImageryWithLabels());
-
+    ArcGISMap map = new ArcGISMap(Type.DARK_GRAY_CANVAS_VECTOR, 51.960403, 10.029217, 5);
     // set the map to the map view
     mMapView.setMap(map);
-//    requestReadPermission();
 
     // create a kml data set from a URL
     KmlDataset kmlDataset = new KmlDataset(getString(R.string.kml_url));
