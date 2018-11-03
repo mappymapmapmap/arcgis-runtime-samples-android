@@ -14,7 +14,7 @@
  *
  */
 
-package com.esri.arcgisruntime.featurecollectionlayer;
+package com.esri.arcgisruntime.sample.featurecollectionlayer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +23,7 @@ import com.esri.arcgisruntime.data.Feature;
 import com.esri.arcgisruntime.data.FeatureCollection;
 import com.esri.arcgisruntime.data.FeatureCollectionTable;
 import com.esri.arcgisruntime.data.Field;
+import com.esri.arcgisruntime.featurecollectionlayer.R;
 import com.esri.arcgisruntime.geometry.*;
 import com.esri.arcgisruntime.layers.FeatureCollectionLayer;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
