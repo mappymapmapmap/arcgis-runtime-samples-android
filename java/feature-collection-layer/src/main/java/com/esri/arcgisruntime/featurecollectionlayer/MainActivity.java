@@ -26,12 +26,11 @@ import com.esri.arcgisruntime.data.Field;
 import com.esri.arcgisruntime.geometry.*;
 import com.esri.arcgisruntime.layers.FeatureCollectionLayer;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
-import com.esri.arcgisruntime.mapping.Basemap.Type;
+import com.esri.arcgisruntime.mapping.Basemap;
 import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
-import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol.Style;
 import com.esri.arcgisruntime.symbology.SimpleRenderer;
 
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     mMapView = findViewById(R.id.mapView);
 
     //initialize map with basemap
-    ArcGISMap map = new ArcGISMap(Type.OCEANS, 8.584491, -79.659713, 8);
+    ArcGISMap map = new ArcGISMap(Basemap.Type.OCEANS, 8.584491, -79.659713, 8);
 
     //assign map to the map view
     mMapView.setMap(map);
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     FeatureCollectionTable pointsTable = new FeatureCollectionTable(pointFields, GeometryType.POINT, SpatialReferences.getWgs84());
 
     // set a default symbol for features in the collection table
-    SimpleMarkerSymbol markerSymbol = new SimpleMarkerSymbol(Style.TRIANGLE, 0xFFFF0000, 18);
+    SimpleMarkerSymbol markerSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.TRIANGLE, 0xFFFF0000, 18);
     SimpleRenderer renderer = new SimpleRenderer(markerSymbol);
     pointsTable.setRenderer(renderer);
 
