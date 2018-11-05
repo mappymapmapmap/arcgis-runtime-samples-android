@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
     KmlDataset kmlDataset = new KmlDataset(getString(R.string.kml_url));
     // show an alert when any network link messages are received
     kmlDataset.addKmlNetworkLinkMessageReceivedListener(kmlNetworkLinkMessageReceivedEvent -> {
-      String error = "KML Network Link Message: " + kmlNetworkLinkMessageReceivedEvent.getMessage();
-      Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-      Log.e(TAG, error);
+      String message = "KML Network Link Message: " + kmlNetworkLinkMessageReceivedEvent.getMessage();
+      Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+      Log.i(TAG, message);
     });
 
     // a KML layer created from a remote KML file

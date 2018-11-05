@@ -13,9 +13,9 @@ The data shown should refresh automatically every few seconds. A network message
 
 To show KML with network links and display network messages:
 
-1. Create a <code>KmlDataset</code> from a KML source which has network links.
-1. Construct a <code>KmlLayer</code> with the dataset and add the layer as an operational layer.
-1. To listen for network messages, add a <code>KmlNetworkLinkMessageReceivedListener</code> on the dataset.
+1. Create a `KmlDataset` from a KML source which has network links.
+1. Construct a `KmlLayer` with the dataset and add the layer as an operational layer.
+1. To listen for network messages, add a `KmlNetworkLinkMessageReceivedListener` on the dataset.
 
 
 ## Relevant API
@@ -32,4 +32,4 @@ This map shows the current air traffic in parts of Europe with heading, altitude
 
 ## Tags
 
-KML, KMZ, OGC, Keyhole, Network Link, Network Link Control.
+Layers, KML, KMZ, OGC, Keyhole, Network Link, Network Link Control.
